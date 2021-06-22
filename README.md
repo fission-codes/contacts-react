@@ -84,10 +84,10 @@ import { isBlockchainAddress } from '@fission-suite/contacts-react/Contact'
   itemComponent={({ blockchainNetworks, contact }) => {
     if (isBlockchainAddress(contact.address)) {
       const network = lookUpBlockchainNetwork(contact.address, blockchainNetworks)
-      return <>
+      return <li>
         {contact.address.accountAddress}
         {network.label}
-      </>
+      </li>
     }
 
     return <></>
