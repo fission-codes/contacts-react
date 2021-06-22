@@ -20,12 +20,13 @@ These components assume contacts in the form of:
 
 ```json
 {
+  "uuid": "a58bca0d-a38f-42a1-8b33-bcd53027881c",
   "label": "Main ETH account",
   "notes": "💰",
   "createdAt": "2021-05-26T16:03:03Z",
   "modifiedAt": "2021-05-26T16:03:03Z",
   "address": {
-    "accountId": "0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb",
+    "accountAddress": "0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb",
     "chainId": "eip155:1"
   }
 }
@@ -39,7 +40,33 @@ You can find the JSON schema in the [repo](https://github.com/fission-suite/cont
 To illustrate how easy it is to work with the [webnative](https://github.com/fission-suite/webnative) filesystem, we're making a few React components to easily render contacts in your React app.
 
 ```js
-import { Contact } from 'fission-contacts-react'
+import { List, Contact } from 'fission-contacts-react'
+
+webnative.initialise({ ... }).then(state => {
+  if (state.fs) {
+    return <List fileSystem={state.fs} />
+  }
+})
+```
+
+`List` component properties:
+```js
+{
+  blockchainNetworksPath,       // default: fission-contacts-react/List.DEFAULT_BLOCKCHAIN_NETWORKS_PATH
+  fileSystem,                   // REQUIRED
+  itemComponent,                // default: fission-contacts-react/Contact.Contact
+  libraryPath,                  // default: fission-contacts-react/List.DEFAULT_PATH
+  listElement,                  // default: "dl"
+  loadingComponent,             // default: fission-contacts-react/List.Loading
+}
+```
+
+`Contact` component properties:
+```js
+{
+  blockchainNetworks,           // default: {}, passed from the default `List` component
+  contact                       // REQUIRED
+}
 ```
 
 

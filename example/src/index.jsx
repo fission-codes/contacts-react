@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import ReactDOM from "react-dom"
 
 import { SignInButton } from "fission-kit/components/react"
-import { Contact } from "../../src/index.js"
+import { List } from "../../src/index.js"
 
 
 // 🔐
@@ -25,7 +25,7 @@ const node = document.getElementById("root")
 
 
 ReactDOM.render(
-  <Container><Loader /></Container>,
+  <Container>{Loader("⚡️")()}</Container>,
   node
 )
 
@@ -35,7 +35,7 @@ webnative.initialise({
 
 }).then(state => {
   ReactDOM.render(
-    App({ authenticatedUsername: state.username }),
+    App({ authenticatedUsername: state.username, fs: state.fs }),
     node
   )
 
@@ -49,13 +49,11 @@ webnative.initialise({
 // APP
 
 
-function App({ authenticatedUsername }) {
+function App({ authenticatedUsername, fs }) {
   const signedInUsername = authenticatedUsername
 
   const content = signedInUsername
-    ? <div>
-      TODO: Render contacts with Contact component
-    </div>
+    ? <List fileSystem={fs} loadingComponent={Loader("💡")} />
 
     : <SignInButton
       className="bg-base-900 text-base-50 dark:bg-base-100 dark:text-base-900"
@@ -77,8 +75,6 @@ function Container(props) {
 }
 
 
-function Loader() {
-  return <div>
-    Loading ⚡️
-  </div>
+function Loader(emoji) {
+  return () => <div><span className="italic">Energizing</span> {emoji}</div>
 }

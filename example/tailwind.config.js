@@ -30,7 +30,7 @@ module.exports = {
 
 
   plugins: [
-  
+
     // Add custom font
     plugin(function({ addBase }) {
       kit.fontFaces({ fontsPath: "/fonts/" }).forEach(fontFace => {
