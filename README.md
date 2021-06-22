@@ -72,7 +72,7 @@ webnative.initialise({ ... }).then(state => {
 The default `Contact` and loading components are unstyled, so most likely you'll want to provide styled components instead.
 
 ```js
-import { isBlockchainAddress } from '@fission-suite/contacts-react/Contact'
+import { isBlockchainAddress, lookUpBlockchainNetwork } from '@fission-suite/contacts-react/Contact'
 
 <List
   fileSystem={state.fs}
