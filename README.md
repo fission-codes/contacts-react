@@ -31,7 +31,7 @@ These components assume contacts in the form of:
   }
 }
 ```
-You can find the JSON schema in the [repo](https://github.com/fission-suite/contacts/blob/main/src/Schemas/Dawn/Contact.json) from the contacts app, which is live at [contacts.fission.app](https://contacts.fission.app/). In the app you can view and manage your contacts. By default it assumes the contacts like at `private/Documents/Contacts/`.
+You can find the JSON schema in the [repo](https://github.com/fission-suite/contacts/blob/main/src/Schemas/Dawn/Contact.json) from the contacts app, which is live at [contacts.fission.app](https://contacts.fission.app/). In the app you can view and manage your contacts. By default it assumes the contacts data in the `private/Documents/Contacts/` directory.
 
 
 
@@ -40,7 +40,7 @@ You can find the JSON schema in the [repo](https://github.com/fission-suite/cont
 To illustrate how easy it is to work with the [webnative](https://github.com/fission-suite/webnative) filesystem, we're making a few React components to easily render contacts in your React app.
 
 ```js
-import { List, Contact } from 'fission-contacts-react'
+import { List } from '@fission-suite/contacts-react'
 
 webnative.initialise({ ... }).then(state => {
   if (state.fs) {
@@ -52,12 +52,12 @@ webnative.initialise({ ... }).then(state => {
 `List` component properties:
 ```js
 {
-  blockchainNetworksPath,       // default: fission-contacts-react/List.DEFAULT_BLOCKCHAIN_NETWORKS_PATH
+  blockchainNetworksPath,       // default: @fission-suite/contacts-react/List.DEFAULT_BLOCKCHAIN_NETWORKS_PATH
   fileSystem,                   // REQUIRED
-  itemComponent,                // default: fission-contacts-react/Contact.Contact
-  libraryPath,                  // default: fission-contacts-react/List.DEFAULT_PATH
+  itemComponent,                // default: @fission-suite/contacts-react/Contact.Contact
+  libraryPath,                  // default: @fission-suite/contacts-react/List.DEFAULT_PATH
   listElement,                  // default: "dl"
-  loadingComponent,             // default: fission-contacts-react/List.Loading
+  loadingComponent,             // default: @fission-suite/contacts-react/List.Loading
 }
 ```
 
@@ -67,6 +67,32 @@ webnative.initialise({ ... }).then(state => {
   blockchainNetworks,           // default: {}, passed from the default `List` component
   contact                       // REQUIRED
 }
+```
+
+The default `Contact` and loading components are unstyled, so most likely you'll want to provide styled components instead.
+
+```js
+import { isBlockchainAddress } from '@fission-suite/contacts-react/Contact'
+
+<List
+  fileSystem={state.fs}
+
+  listElement="ol"
+  loadingComponent={() =>
+    <div>Loading …</div>
+  }
+  itemComponent={({ blockchainNetworks, contact }) => {
+    if (isBlockchainAddress(contact.address)) {
+      const network = lookUpBlockchainNetwork(contact.address, blockchainNetworks)
+      return <>
+        {contact.address.accountAddress}
+        {network.label}
+      </>
+    }
+
+    return <></>
+  }}
+/>
 ```
 
 

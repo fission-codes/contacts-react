@@ -1,14 +1,14 @@
 import React from "react"
 
 
-export function Contact(props) {
+export function Component(props) {
   if (!props.contact) throw new Error("Missing `contact` prop")
 
   const { address, label } = props.contact
   const blockchainNetworks = props.blockchainNetworks
 
   const info = (() => {
-    if (address.accountAddress) {
+    if (isBlockchainAddress(address)) {
       const network = lookUpBlockchainNetwork(address, blockchainNetworks)
 
       return <dd>
@@ -24,6 +24,11 @@ export function Contact(props) {
     <dt><strong>{label}</strong></dt>
     {info}
   </>
+}
+
+
+export function isBlockchainAddress(address) {
+  return !!address.chainId
 }
 
 

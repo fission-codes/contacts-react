@@ -14,7 +14,7 @@ export const DEFAULT_BLOCKCHAIN_NETWORKS_PATH = path.file(
 )
 
 
-export function List({
+export function Component({
   blockchainNetworksPath = DEFAULT_BLOCKCHAIN_NETWORKS_PATH,
   fileSystem,
   itemComponent = Contact,
