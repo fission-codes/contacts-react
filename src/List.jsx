@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { Contact } from "./Contact.jsx"
+import { Component as Contact } from "./Contact.jsx"
 import { path } from "webnative"
 
 

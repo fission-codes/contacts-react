@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin")
-const kit = require("fission-kit")
+const kit = require("@fission-suite/kit")
 
 
 module.exports = {
@@ -9,8 +9,7 @@ module.exports = {
 
   purge: [
     "src/**/*.{js,jsx}",
-    "node_modules/fission-kit/src/Components/Classes.json",
-    "node_modules/fission-kit/src/Components/React/**/*.jsx"
+    ...kit.tailwindPurgeList()
   ],
 
 

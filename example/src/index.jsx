@@ -2,7 +2,7 @@ import * as webnative from "webnative"
 import React, { useState } from "react"
 import ReactDOM from "react-dom"
 
-import { SignInButton } from "fission-kit/components/react"
+import { SignInButton } from "@fission-suite/kit/components/react/buttons.jsx"
 import { List } from "../../src/index.js"
 
 

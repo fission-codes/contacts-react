@@ -1,0 +1,58 @@
+{
+  "name": "@fission-suite/contacts-react",
+  "version": "1.0.0",
+  "description": "React components for working with Contacts.",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./*.js": {
+      "require": "./lib/*.js",
+      "import": "./src/*.js",
+      "default": "./src/*.js"
+    },
+    "./*": {
+      "require": "./lib/*",
+      "import": "./src/*",
+      "default": "./src/*"
+    }
+  },
+  "scripts": {
+    "build": "\"$npm_execpath\" run build:lib && \"$npm_execpath\" run build:minified",
+    "build:lib": "esbuild src/index.js --bundle --outdir=lib --format=cjs",
+    "build:minified": "esbuild src/index.js --outfile=dist/index.min.js --bundle --minify --sourcemap --platform=browser --format=iife --global-name=globalThis.ReactContacts --target=es2020 && gzip -k9 dist/index.min.js",
+    "prebuild": "rimraf dist && rimraf lib",
+    "prepare": "\"$npm_execpath\" run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fission-suite/contacts-react.git"
+  },
+  "keywords": [
+    "fission",
+    "react",
+    "contact",
+    "components"
+  ],
+  "author": "Steven Vandevelde <icid.asset@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/fission-suite/contacts-react/issues"
+  },
+  "homepage": "https://github.com/fission-suite/contacts-react#readme",
+  "devDependencies": {
+    "esbuild": "^0.12.9",
+    "react": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "webnative": "^0.25.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "webnative": "^0.24.0"
+  }
+}

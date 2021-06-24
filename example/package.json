@@ -9,16 +9,15 @@
     "postcss": "^8.3.5",
     "rimraf": "^3.0.2",
     "tailwindcss": "^2.2.0",
-    "vite": "^2.3.7"
+    "vite": "^2.3.8"
   },
   "dependencies": {
-    "fission-kit": "file:../../kit",
+    "@fission-suite/kit": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webnative": "0.24.1"
   },
   "scripts": {
-    "dev": "\"$npm_execpath\" run fonts && vite",
-    "fonts": "copyfiles --flat node_modules/fission-kit/fonts/**/*.woff2 fonts/"
+    "dev": "copy-fission-fonts ./fonts --woff2 && vite"
   }
 }
