@@ -12,7 +12,7 @@
     "vite": "^2.3.8"
   },
   "dependencies": {
-    "@fission-suite/contacts-react": "^1.0.0",
+    "@fission-suite/contacts-react": "^1.1.0",
     "@fission-suite/kit": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
