@@ -53,6 +53,7 @@ webnative.initialise({ ... }).then(state => {
 ```js
 {
   blockchainNetworksPath,       // default: @fission-suite/contacts-react/List.DEFAULT_BLOCKCHAIN_NETWORKS_PATH
+  emptyStateComponent,          // default: @fission-suite/contacts-react/List.EmptyState
   fileSystem,                   // REQUIRED
   itemComponent,                // default: @fission-suite/contacts-react/Contact.Contact
   libraryPath,                  // default: @fission-suite/contacts-react/List.DEFAULT_PATH
@@ -76,8 +77,11 @@ import { isBlockchainAddress, lookUpBlockchainNetwork } from '@fission-suite/con
 
 <List
   fileSystem={state.fs}
-
   listElement="ol"
+
+  emptyStateComponent={
+    <div>Nothing here yet.</div>
+  }
   loadingComponent={() =>
     <div>Loading …</div>
   }

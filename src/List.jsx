@@ -16,6 +16,7 @@ export const DEFAULT_BLOCKCHAIN_NETWORKS_PATH = path.file(
 
 export function Component({
   blockchainNetworksPath = DEFAULT_BLOCKCHAIN_NETWORKS_PATH,
+  emptyStateComponent = EmptyState,
   fileSystem,
   itemComponent = Contact,
   libraryPath = DEFAULT_PATH,
@@ -59,10 +60,21 @@ export function Component({
       )
     })
 
-    return React.createElement(listElement, {}, items)
+    if (contacts.length) {
+      return React.createElement(listElement, {}, items)
+    } else {
+      return React.createElement(emptyStateComponent)
+    }
+
   } else {
     return React.createElement(loadingComponent)
+
   }
+}
+
+
+export function EmptyState() {
+  return <div>No addresses have been added yet.</div>
 }
 
 
