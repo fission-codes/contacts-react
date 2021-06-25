@@ -1,4 +1,5 @@
 dependencies:
+  '@fission-suite/contacts-react': link:..
   '@fission-suite/kit': 1.0.1_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -3151,6 +3152,7 @@ packages:
       tarball: https://ipfs.runfission.com/ipfs/bafybeigx6q4aezve7my76s5vvfuiinbxtepapqvmjf2jbgrozrut6cjape/p/ipfs-message-port-protocol.tar.gz
     version: 0.6.0-fission
 specifiers:
+  '@fission-suite/contacts-react': file:../
   '@fission-suite/kit': ^1.0.1
   '@vitejs/plugin-react-refresh': ^1.3.3
   autoprefixer: ^10.2.6

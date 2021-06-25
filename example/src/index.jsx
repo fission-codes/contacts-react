@@ -1,9 +1,9 @@
 import * as webnative from "webnative"
-import React, { useState } from "react"
+import React from "react"
 import ReactDOM from "react-dom"
 
 import { SignInButton } from "@fission-suite/kit/components/react/buttons.jsx"
-import { List } from "../../src/index.js"
+import { Component as List } from "@fission-suite/contacts-react/List.jsx"
 
 
 // 🔐
@@ -35,7 +35,7 @@ webnative.initialise({
 
 }).then(state => {
   ReactDOM.render(
-    App({ authenticatedUsername: state.username, fs: state.fs }),
+    <App authenticatedUsername={state.username} fs={state.fs} />,
     node
   )
 

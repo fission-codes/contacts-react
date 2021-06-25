@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 import { Component as Contact } from "./Contact.jsx"
-import { path } from "webnative"
+import * as path from "webnative/dist/path"
 
 
 export const DEFAULT_PATH = path.file(

@@ -12,12 +12,14 @@
     "vite": "^2.3.8"
   },
   "dependencies": {
+    "@fission-suite/contacts-react": "file:../",
     "@fission-suite/kit": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webnative": "0.24.1"
   },
   "scripts": {
+    "build": "NODE_ENV=production vite build --config vite.config.js",
     "dev": "copy-fission-fonts ./fonts --woff2 && vite"
   }
 }
