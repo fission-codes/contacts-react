@@ -1,5 +1,5 @@
 dependencies:
-  '@fission-suite/contacts-react': link:..
+  '@fission-suite/contacts-react': 1.0.0_react@17.0.2+webnative@0.24.1
   '@fission-suite/kit': 1.0.1_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -267,6 +267,16 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-M/NzBpEL95I5Hh4dwhin5JlE7EzO5PHMAuzjxss3tiOBD46KfQvVedN/3jEPZvdRvtsK2222XfdHogNIttFgcg==
+  /@fission-suite/contacts-react/1.0.0_react@17.0.2+webnative@0.24.1:
+    dependencies:
+      react: 17.0.2
+      webnative: 0.24.1
+    dev: false
+    peerDependencies:
+      react: ^17.0.2
+      webnative: ^0.24.0
+    resolution:
+      integrity: sha512-xu8X1kCBrNlrXdr4VNVK1Qz1Ga5xFOM4NFD0x3vBq3OF/otNHhBQZOFBTcBzabX09/HDmEktsoQSfdHRgH2d6w==
   /@fission-suite/kit/1.0.1_react@17.0.2:
     dependencies:
       clsx: 1.1.1
@@ -3152,7 +3162,7 @@ packages:
       tarball: https://ipfs.runfission.com/ipfs/bafybeigx6q4aezve7my76s5vvfuiinbxtepapqvmjf2jbgrozrut6cjape/p/ipfs-message-port-protocol.tar.gz
     version: 0.6.0-fission
 specifiers:
-  '@fission-suite/contacts-react': file:../
+  '@fission-suite/contacts-react': ^1.0.0
   '@fission-suite/kit': ^1.0.1
   '@vitejs/plugin-react-refresh': ^1.3.3
   autoprefixer: ^10.2.6
