@@ -1,7 +1,7 @@
-<img src="https://raw.githubusercontent.com/fission-suite/kit/7658553dbcade0ce0482f4ee8b0f3db333aa960b/images/logo-icon-colored.svg" width="88" />
+<div align="center">
+  <img src="https://github.com/fission-codes/kit/blob/main/images/logo-icon-coloured.png?raw=true" width="100" />
 
-
-# Contacts React
+  <h1>Contacts React</h1>
 
 [![Build Status](https://travis-ci.org/fission-suite/contacts-react.svg?branch=master)](https://travis-ci.org/fission-suite/contacts-react)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/fission-suite/blob/master/LICENSE)
@@ -10,9 +10,9 @@
 [![Discord](https://img.shields.io/discord/478735028319158273.svg)](https://discord.gg/zAQBDEq)
 [![Discourse](https://img.shields.io/discourse/https/talk.fission.codes/topics)](https://talk.fission.codes)
 
+</div>
+
 React components for working with contacts data.
-
-
 
 ## Contacts Data
 
@@ -31,9 +31,8 @@ These components assume contacts in the form of:
   }
 }
 ```
+
 You can find the JSON schema in the [repo](https://github.com/fission-suite/contacts/blob/main/src/Schemas/Dawn/Contact.json) from the contacts app, which is live at [contacts.fission.app](https://contacts.fission.app/). In the app you can view and manage your contacts. By default it assumes the contacts data in the `private/Documents/Contacts/` directory.
-
-
 
 ## Components
 
@@ -50,6 +49,7 @@ webnative.initialise({ ... }).then(state => {
 ```
 
 `List` component properties:
+
 ```js
 {
   blockchainNetworksPath,       // default: @fission-suite/contacts-react/List.DEFAULT_BLOCKCHAIN_NETWORKS_PATH
@@ -63,43 +63,45 @@ webnative.initialise({ ... }).then(state => {
 ```
 
 `Contact` component properties:
+
 ```js
 {
-  blockchainNetworks,           // default: {}, passed from the default `List` component
-  contact                       // REQUIRED
+  blockchainNetworks, // default: {}, passed from the default `List` component
+    contact; // REQUIRED
 }
 ```
 
 The default `Contact` and loading components are unstyled, so most likely you'll want to provide styled components instead.
 
 ```js
-import { isBlockchainAddress, lookUpBlockchainNetwork } from '@fission-suite/contacts-react/Contact'
+import {
+  isBlockchainAddress,
+  lookUpBlockchainNetwork,
+} from "@fission-suite/contacts-react/Contact";
 
 <List
   fileSystem={state.fs}
   listElement="ol"
-
-  emptyStateComponent={
-    <div>Nothing here yet.</div>
-  }
-  loadingComponent={() =>
-    <div>Loading …</div>
-  }
+  emptyStateComponent={<div>Nothing here yet.</div>}
+  loadingComponent={() => <div>Loading …</div>}
   itemComponent={({ blockchainNetworks, contact }) => {
     if (isBlockchainAddress(contact.address)) {
-      const network = lookUpBlockchainNetwork(contact.address, blockchainNetworks)
-      return <li>
-        {contact.address.accountAddress}
-        {network.label}
-      </li>
+      const network = lookUpBlockchainNetwork(
+        contact.address,
+        blockchainNetworks
+      );
+      return (
+        <li>
+          {contact.address.accountAddress}
+          {network.label}
+        </li>
+      );
     }
 
-    return <></>
+    return <></>;
   }}
-/>
+/>;
 ```
-
-
 
 ## Example
 
